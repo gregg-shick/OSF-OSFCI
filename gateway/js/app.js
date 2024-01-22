@@ -87,21 +87,21 @@ function homebutton(){
         });
 	$('#btnpoweroff').on('click', function () {
 		BMCUP=0;		
-                $('#bmcbutton').css("display","none");
-                $('#bmctest').css("display","none");
-		$('#bmcem100console').contents().find("head").remove();
-                $('#bmcem100console').contents().find("body").remove();
-		$('#bmcem100console').removeAttr("src");
-		$('#smbiosem100console').contents().find("head").remove();
-                $('#smbiosem100console').contents().find("body").remove();
-                $('#smbiosem100console').removeAttr("src");
-		$('#bmcconsole').contents().find("head").remove();
-                $('#bmcconsole').contents().find("body").remove();
-                $('#bmcconsole').removeAttr("src");
+            //    $('#bmcbutton').css("display","none");
+            //    $('#bmctest').css("display","none");
+	//	$('#bmcem100console').contents().find("head").remove();
+          //      $('#bmcem100console').contents().find("body").remove();
+	//	$('#bmcem100console').removeAttr("src");
+	//	$('#smbiosem100console').contents().find("head").remove();
+          //      $('#smbiosem100console').contents().find("body").remove();
+            //    $('#smbiosem100console').removeAttr("src");
+	//	$('#bmcconsole').contents().find("head").remove();
+          //      $('#bmcconsole').contents().find("body").remove();
+            //    $('#bmcconsole').removeAttr("src");
                 $.ajax({
                         type: "GET",
                         contentType: 'application/json',
-                        url: window.location.origin + '/ci/power_off/',
+                        url: window.location.origin + '/ci/power_off_insession/',
                         success: function(response){
                                 console.log("System stopped");
                         }
@@ -130,6 +130,7 @@ function start_ci(machine) {
         loadHTML("html/navbar.html");
 		$('#download_key_button').removeAttr("style");
         loadJS("js/navbar.js");
+        navbarHover();
         loginBtn();
 
 	// We request a test node to the gateway
@@ -873,6 +874,7 @@ function myAccount()
 	clearDocument();
 	loadHTML("html/navbar.html");
         loadJS("js/navbar.js");
+	navbarHover();
 	loginBtn();
 
 	// We must put in place the layout here and allow various entries to be available
@@ -957,6 +959,7 @@ function mainpage(){
 	loadHTML("html/navbar.html");
 	$('#download_key_button').removeAttr("style");
 	loadJS("js/navbar.js");
+	navbarHover();
 	// pretty rudimentary I should probably keep this within the popUp function itself eventually
 	AckCookieName = "priv_key_ack"
 	if (( "string" === typeof(mylocalStorage['secretKey']) ) & ( "string" === typeof(mylocalStorage['accessKey']) ))
@@ -1006,6 +1009,7 @@ function main(){
 		clearDocument();
 		loadHTML("html/navbar.html");
 		loadJS("js/navbar.js");
+		navbarHover();
 		loginBtn();
                 $(document.body).append("<center><h1>Welcome Back !</h1></center>");
 		loadHTML("html/loginForm.html");
@@ -1030,6 +1034,7 @@ function main(){
 			clearDocument();
                         loadHTML("html/navbar.html");
                         loadJS("js/navbar.js");
+                        navbarHover();
                         loginBtn();
                         $(document.body).append("<center><h1>Welcome Back !</h1><center>");
                         loadHTML("html/resetPassword.html");
@@ -1062,6 +1067,7 @@ function main(){
 			clearDocument();
 			loadHTML("html/navbar.html");
 			loadJS("js/navbar.js");
+			navbarHover();
 			loginBtn();
 			loadHTML("html/home.html");
 			$('#background').css('background-image', 'url(images/landing.png)').fadeIn(3000);
